@@ -2,6 +2,7 @@ from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import time
+import numpy as np
 
 options = webdriver.ChromeOptions()
 options.add_argument('--ignore-certificate-errors')
@@ -47,33 +48,11 @@ for result in results:
 	clubs_info.append(club_info)
 
 
-	# for div in divs:
-		# print(div)
-		# if (counter == 1):
-		# 	rawclubdesc = div.text.strip()		
-		# 	# print(rawclubdesc)
-		# if (counter == 5):
-		# 	clubname = div.text.strip()
-		# 	clubdesc = rawclubdesc.replace(clubname, '', 1)
-		# 	club_info.append(clubname)
-		# 	club_info.append(clubdesc)
-		# 	# print(clubname)
-		# if(counter == 4) and (div.find("img") is not None):
-		# 	image = div.find("img")
-		# 	imageURL = image['src'].strip()
-		# 	club_info.append(imageURL)
-		# 	# print(imageURL)
-		# counter+=1
-		# clubs_info.append(club_info)
+# for club in clubs_info:
+# 	print()
+# 	print(club)
+# 	print()
 
-# print(clubs_info)
-
-for club in clubs_info:
-	print()
-	print(club)
-	print()
-
-# for result in results:
-# 	print(result["style"])
+np.savetxt("clubInfo.csv", clubs_info, delimiter =", ", fmt = "% s")
 
 
