@@ -37,6 +37,7 @@ for result in results:
 	counter = 0
 	club_info = []
 	clubdesc = divs[1].text.strip()
+	clubdesc.replace('"', "")
 	namedivs = divs[4].find_all("div")
 	clubname = namedivs[-1].text.strip()
 	club_info.append(clubname)
